@@ -8,8 +8,40 @@
   </head>
   <body>
     <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
+      <div class="header-top-row">
+        <div>
+          <h1>Mergington High School</h1>
+          <h2>Extracurricular Activities</h2>
+        </div>
+        <button
+          id="auth-toggle"
+          class="icon-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="auth-panel"
+        >
+          <span class="icon-button-symbol" aria-hidden="true">&#128100;</span>
+          <span>Teacher Login</span>
+        </button>
+      </div>
+      <div id="auth-panel" class="auth-panel hidden">
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" required autocomplete="current-password" />
+          </div>
+          <button type="submit">Log In</button>
+        </form>
+        <div id="auth-status" class="auth-status hidden">
+          <p id="auth-status-text"></p>
+          <button id="logout-button" type="button">Log Out</button>
+        </div>
+        <p id="auth-message" class="auth-message hidden"></p>
+      </div>
     </header>
 
     <main>
@@ -22,8 +54,11 @@
       </section>
 
       <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
+        <h3>Teacher Activity Controls</h3>
+        <p id="signup-locked-message" class="info-banner">
+          Teachers must log in to register or unregister students.
+        </p>
+        <form id="signup-form" class="hidden">
           <div class="form-group">
             <label for="email">Student Email:</label>
             <input type="email" id="email" required placeholder="your-email@mergington.edu" />
